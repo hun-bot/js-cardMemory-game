@@ -1,23 +1,60 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+const card=document.querySelectorAll(".card-memory")
+const counter=document.querySelectorAll(".counter")
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+let hasFilpped=false
+let matched=[]
+let cardMatched=false
 
-setupCounter(document.querySelector('#counter'))
+card.forEach(e=>e.addEventListener("click",filpedCard))
+
+function cardShuffle(){
+  card.forEach(e=>{
+    let random=Math.floor(Math.random()*18)
+    e.style.order=random
+  })
+}
+cardShuffle()
+
+
+
+function setupCounter() {
+  return
+}
+
+
+function filpedCard(){
+  this.classList.add("filp")
+  let selectedCardName=this.children[0].alt
+  console.log(selectedCardName)
+  matched.push(selectedCardName)
+  if(matched.length===2){
+    checkCard()
+    // disabled 줘서 다른 카드 못만지게 하기
+  }
+  if(!hasFilpped){
+    hasFilpped=true
+    showingCard(this)
+  }
+}
+
+function showingCard(props){
+  let card=props
+  setTimeout(()=>{
+    card.classList.remove("filp")
+    card.classList.toggle("slowly")
+  },2000)
+  hasFilpped=false
+}
+
+function checkCard(props){
+  // console.log(props)
+  if(matched.length===2){
+    if(matched[0]===matched[1]){
+      cardMatched=true
+      console.log('같다')
+    }
+    cardMatched=false
+    return matched=[]
+  }
+}
+
