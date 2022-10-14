@@ -33,6 +33,10 @@ h1{
   position: relative;
   box-shadow: 1px 1px 1px rgba(0,0,0,.3);
   transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.reveal-backface{
+  backface-visibility: visible;
 }
 .card-memory:hover {
   transform: scale(1.05);
@@ -41,6 +45,7 @@ h1{
 .card-memory.filp{
   transform: rotateY(180deg);
 }
+
 .card-memory.slowly{
   transition: all .2s ease-in-out;
 }
@@ -55,9 +60,12 @@ h1{
   padding: 20px;
   border-radius: 5px;
   background-color: #ffffff;
-  backface-visibility: hidden;
+  /* backface-visibility: hidden; card-memory로 옮김 */
 }
 .card-front{
+  transform: rotateY(180deg);
+}
+.card-front.set{
   transform: rotateY(180deg);
 }
 .counter{
@@ -65,4 +73,7 @@ h1{
   position: absolute;
   bottom: 0;
   left: 0;
+}
+.card-display-none{
+  display:none;
 }
