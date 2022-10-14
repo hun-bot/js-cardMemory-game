@@ -6,7 +6,7 @@
 body{
   height: 100vh;
   display: flex;
-  background-color: #78788d;
+  background-color: #308e5f69;
 }
 .h1-container{
   display: flex;
@@ -14,10 +14,34 @@ body{
   top: 0;
   left: 0;
 }
-
-h1{
-  color: #fff;
+.animation-h1
+{
+  text-transform: uppercase;
+ background-image: linear-gradient(
+   -225deg,
+   #2e1587 0%,
+   #146693 29%,
+   #274d7c 67%,
+   #8e1375 100%
+ );
+ background-size: auto auto;
+ background-clip: border-box;
+ background-size: 200% auto;
+ color: #fff;
+ background-clip: text;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: textclip 20s linear infinite;
+ display: inline-block;
+     font-size: 200%;
 }
+@keyframes textclip {
+ to {
+   background-position: 200% center;
+ }
+}
+
+
 .card-container{
   display: flex;
   width: 55%;
@@ -76,4 +100,15 @@ h1{
 }
 .card-display-none{
   display:none;
+}
+.counter{
+  display:flex;
+}
+.showEmail{
+  position: absolute;
+  bottom:0;
+  right: 0;
+}
+.showCounter{
+  color: #fff;
 }

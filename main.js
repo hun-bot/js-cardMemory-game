@@ -20,7 +20,7 @@ function cardShuffle(){
 }
 cardShuffle()
 
-console.log(showCounter.innerText)
+// console.log(showCounter.innerText)
 
 function setupCounter(arr) {
   count++
@@ -32,7 +32,7 @@ function setupCounter(arr) {
 function filpedCard(){
   this.classList.add("filp")
   let selectedCardName=this.children[0].alt
-  console.log(selectedCardName)
+  // console.log(selectedCardName)
   matched.push(selectedCardName)
   if(!hasFilpped){
     hasFilpped=true
@@ -48,7 +48,7 @@ function showingCard(props){
 }
 function showingBackSideCard(props){
   let card=props
-  console.log("카드 뒤집기",card)
+  // console.log("카드 뒤집기",card)
   setTimeout(()=>{
     card.map(e=>{
       e.classList.remove("filp")
