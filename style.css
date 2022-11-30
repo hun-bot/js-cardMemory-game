@@ -6,7 +6,7 @@
 body{
   height: 100vh;
   display: flex;
-  background-color: #308e5f69;
+  background-color: #2f6da085;
 }
 .h1-container{
   display: flex;
@@ -16,7 +16,8 @@ body{
 }
 .animation-h1
 {
-  text-transform: uppercase;
+  margin-left: 20px;
+  margin-right: 20px;
  background-image: linear-gradient(
    -225deg,
    #2e1587 0%,
@@ -33,7 +34,7 @@ body{
  -webkit-text-fill-color: transparent;
  animation: textclip 20s linear infinite;
  display: inline-block;
-     font-size: 200%;
+font-size: 200%;
 }
 @keyframes textclip {
  to {
